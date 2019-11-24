@@ -8,11 +8,11 @@ public:
   string name;
   string level;
   string department;
-  int advisorID;
 
-  Student();
-  ~Student();
-  Student(int i, string n, string l, string m, double g, int a);
+
+  Faculty();
+  ~Faculty();
+  Faculty(int i, string n, string l, string d);
 
   void getInformation();
 
