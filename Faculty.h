@@ -17,6 +17,7 @@ public:
 
   void getInformation();
   void addAdvisee(int i);
+  void removeAdvisee(int i);
   int printAdvisee(int id);
 
   bool operator==(const Faculty& f);
@@ -24,4 +25,5 @@ public:
   bool operator>(const Faculty& f);
   bool operator<=(const Faculty& f);
   bool operator>=(const Faculty& f);
+  bool operator!=(const Faculty& f);
 };

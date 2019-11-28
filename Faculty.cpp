@@ -36,6 +36,10 @@ void Faculty::addAdvisee(int i){
   advisees.push_front(i);
 }
 
+void Faculty::removeAdvisee(int i){
+  advisees.remove(i);
+}
+
 int Faculty::printAdvisee(int id){
   for(std::list<int>::iterator it = advisees.begin(); it != advisees.end(); ++it){
     if(*it == id){
@@ -63,5 +67,9 @@ bool Faculty::operator<=(const Faculty& f){
 }
 bool Faculty::operator>=(const Faculty& f){
   bool IDCheck = (ID >= f.ID);
+  return(IDCheck);
+}
+bool Faculty::operator!=(const Faculty& f){
+  bool IDCheck = (ID != f.ID);
   return(IDCheck);
 }

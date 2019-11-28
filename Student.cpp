@@ -44,7 +44,7 @@ bool Student::operator==(const Student& s){
   bool GPACheck = (GPA == s.GPA);
   bool advisorCheck = (advisorID == s.advisorID);
 
-  return (IDCheck && nameCheck && levelCheck && majorCheck && GPACheck && advisorCheck);
+  return (IDCheck && GPACheck && advisorCheck);
 }
 
 bool Student::operator<(const Student& s){
@@ -55,7 +55,7 @@ bool Student::operator<(const Student& s){
   bool GPACheck = (GPA < s.GPA);
   bool advisorCheck = (advisorID < s.advisorID);
 
-  return (IDCheck && nameCheck && levelCheck && majorCheck && GPACheck && advisorCheck);
+  return (IDCheck && GPACheck && advisorCheck);
 }
 
 bool Student::operator>(const Student& s){
@@ -66,7 +66,7 @@ bool Student::operator>(const Student& s){
   bool GPACheck = (GPA > s.GPA);
   bool advisorCheck = (advisorID > s.advisorID);
 
-  return (IDCheck && nameCheck && levelCheck && majorCheck && GPACheck && advisorCheck);
+  return (IDCheck && GPACheck && advisorCheck);
 }
 
 bool Student::operator<=(const Student& s){
@@ -77,7 +77,7 @@ bool Student::operator<=(const Student& s){
   bool GPACheck = (GPA <= s . GPA);
   bool advisorCheck = (advisorID <= s.advisorID);
 
-  return (IDCheck && nameCheck && levelCheck && majorCheck && GPACheck && advisorCheck);
+  return (IDCheck && GPACheck && advisorCheck);
 }
 
 bool Student::operator>=(const Student& s){
@@ -88,5 +88,16 @@ bool Student::operator>=(const Student& s){
   bool GPACheck = (GPA >= s.GPA);
   bool advisorCheck = (advisorID >= s.advisorID);
 
-  return (IDCheck && nameCheck && levelCheck && majorCheck && GPACheck && advisorCheck);
+  return (IDCheck && GPACheck && advisorCheck);
+}
+
+bool Student:operator!=(const Student& s){
+  bool IDCheck = (ID != s.ID);
+  //bool nameCheck = (name >= s.name);
+  //bool levelCheck = (level >= s.level);
+  //bool majorCheck = (major >= s.major);
+  bool GPACheck = (GPA != s.GPA);
+  bool advisorCheck = (advisorID != s.advisorID);
+
+  return (IDCheck && GPACheck && advisorCheck);
 }

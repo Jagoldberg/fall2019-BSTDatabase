@@ -11,7 +11,7 @@ public:
   BST();
   ~BST();
 
-  bool search(int key);
+  E search(int key);
   void insert(int key, E value);
 
   bool deleteNode(int key);
@@ -20,6 +20,7 @@ public:
   bool isEmpty();
   TreeNode<E>* getMin();
   TreeNode<E>* getMax();
+  TreeNode<E>* getRoot();
   void printTree();
   void recPrint(TreeNode<E> *node);
   TreeNode<E>* getSuccessor(TreeNode<E> *d);
@@ -73,6 +74,10 @@ TreeNode<E>* BST<E>::getMin(){
 
   return (current); // or return &(current->key)
 }
+template<typename E>
+TreeNode<E>* BST<E>::getRoot(){
+  return root;
+}
 
 template<typename E>
 void BST<E>::insert(int key, E value){
@@ -88,7 +93,7 @@ void BST<E>::insert(int key, E value){
     TreeNode<E> *parent = NULL;
     while(true){
       parent = current;
-      if(value < current -> key){
+      if(value < current -> value){
         current = current -> left;
         //going left
         if (current == NULL){
@@ -110,9 +115,10 @@ void BST<E>::insert(int key, E value){
 }
 
 template<typename E>
-bool BST<E>::search(int key){
+E BST<E>::search(int key){
+  E value;
   if(root == NULL){
-    return false; //Empty Tree
+    return value; //Empty Tree
   } else{
     //Tree is not empty
     TreeNode<E> *current = root;
@@ -124,11 +130,12 @@ bool BST<E>::search(int key){
       }
       if(current == NULL){
         //value not found
-        return false;
+        return value;
       }
+      value = current -> value;
     }
   }
-  return true;
+  return value;
 }
 template<typename E>
 bool BST<E>::deleteNode(int key){

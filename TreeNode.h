@@ -31,7 +31,7 @@ TreeNode<E>::TreeNode(int k, E v){
 }
 template<typename E>
 TreeNode<E>::~TreeNode(){
-  delete value;
+  delete &value;
   delete left;
   delete right;
 }
