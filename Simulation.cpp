@@ -17,6 +17,8 @@ Simulation::Simulation(){
 }
 
 Simulation::~Simulation(){
+  sf.close();
+  ff.close();
   delete &masterFaculty;
   delete &masterStudent;
   delete &studentRollback;
@@ -25,6 +27,7 @@ Simulation::~Simulation(){
 
 void Simulation::Menu(){
   int userChoice = 0;
+  bool recIndicator = true;
   cout << "Displaying Database Menu: " << endl;
   cout << "1: Print all students and their information (sorted by ascending ID)" << endl;
   cout << "2: Print all faculty and their information (sorted by ascending ID)" << endl;
@@ -337,10 +340,17 @@ void Simulation::Menu(){
         break;
       }
     case 14:
+      {
+        sf.write((char*) &masterStudent,sizeof(masterStudent));
+        ff.read((char*) &masterFaculty, sizeof(masterFaculty));
+        recIndicator = false;
+      }
     default:
       cout << "Invalid Choice!" << endl;
   }
-  Menu();
+  if(recIndicator){
+    Menu();
+  }
 }
 
 void Simulation::recStudentDisplay(TreeNode<Student>* node){
